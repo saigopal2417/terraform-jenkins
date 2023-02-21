@@ -26,7 +26,7 @@ resource "aws_launch_configuration" "ttt" {
   associate_public_ip_address = true
   iam_instance_profile = aws_iam_instance_profile.ttt-node.name
   image_id = data.aws_ami.eks-worker.id
-  instance_type = "t2.micro"
+  instance_type = "t2.medium"
   name_prefix = "terraform-eks-ttt"
   security_groups = [aws_security_group.ttt-node.id]
   user_data_base64 = base64encode(local.ttt-node-userdata)
@@ -37,9 +37,9 @@ resource "aws_launch_configuration" "ttt" {
 }
 
 resource "aws_autoscaling_group" "ttt" {
-  desired_capacity = 1
+  desired_capacity = 2
   launch_configuration = aws_launch_configuration.ttt.id
-  max_size = 1
+  max_size = 2
   min_size = 1
   name = "terraform-eks-ttt"
   # TF-UPGRADE-TODO: In Terraform v0.10 and earlier, it was sometimes necessary to
