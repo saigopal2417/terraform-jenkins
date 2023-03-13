@@ -37,9 +37,9 @@ resource "aws_launch_configuration" "ttt" {
 }
 
 resource "aws_autoscaling_group" "ttt" {
-  desired_capacity = 2
+  desired_capacity = 3
   launch_configuration = aws_launch_configuration.ttt.id
-  max_size = 2
+  max_size = 3
   min_size = 1
   name = "terraform-eks-ttt"
   # TF-UPGRADE-TODO: In Terraform v0.10 and earlier, it was sometimes necessary to
