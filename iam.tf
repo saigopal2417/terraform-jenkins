@@ -23,6 +23,11 @@ resource "aws_iam_role_policy_attachment" "ttt-cluster-AmazonEKSClusterPolicy" {
   role = aws_iam_role.ttt-cluster.name
 }
 
+resource "aws_iam_role_policy_attachment" "ttt-cluster-AmazonEBSCSIDriverPolicy" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEBSCSIDriverPolicy"
+  role = aws_iam_role.ttt-cluster.name
+}
+
 resource "aws_iam_role_policy_attachment" "ttt-cluster-AmazonEKSServicePolicy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSServicePolicy"
   role = aws_iam_role.ttt-cluster.name
