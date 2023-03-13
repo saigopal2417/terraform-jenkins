@@ -23,6 +23,11 @@ resource "aws_iam_role_policy_attachment" "ttt-node-AmazonEKSWorkerNodePolicy" {
   role = aws_iam_role.ttt-node.name
 }
 
+resource "aws_iam_role_policy_attachment" "ttt-node-AmazonEBSCSIDriverPolicy" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEBSCSIDriverPolicy"
+  role = aws_iam_role.ttt-node.name
+}
+
 resource "aws_iam_role_policy_attachment" "ttt-node-AmazonEKS_CNI_Policy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
   role = aws_iam_role.ttt-node.name
